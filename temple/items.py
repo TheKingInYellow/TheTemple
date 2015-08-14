@@ -1,6 +1,6 @@
 #! /usr/bin/python2.7
 
-__filename__ = 'itemClass.py'
+__filename__ = 'items.py'
 __author__ = 'Kody Crowell'
 
 """
@@ -106,9 +106,10 @@ class FishingRod(Tool):
 
 
 # WEAPON ##################################################################
-class Weapons(Tool):
+class Weapon(Tool):
     """
     The base class Weapon inherits from Tool. You can attack with weapons.
+    You can only carry one weapon at a time.
 
     name :: name of the weapon
     desc :: description of the weapon
@@ -244,7 +245,7 @@ class Food(Item):
 class Wine(Food):
     def __init__(self):
         super().__init__(name="Wine",
-                         desc="Red wine in a glass bottle."
+                         desc="Red wine in a glass bottle.",
                          val=30,
                          cal=125,
                          wt=3)
@@ -366,7 +367,7 @@ class NadaBerry(Food):
 # TREASURE ##############################################################
 class CopperHelm(Item):
     def __init__(self):
-        super().__init__(name="Copper Helm"
+        super().__init__(name="Copper Helm",
                          desc="An old battle-helm from ages past.",
                          val=100,
                          wt=5)
@@ -459,7 +460,7 @@ class GoldenIdol(Item):
         super().__init__(name="Golden Idol",
                          desc="This golden idol has rubies for eyes, " \
                             + "sapphires for teeth, and emeralds for nails."\
-                            + "It weighs about the same as a bag of sand."
+                            + "It weighs about the same as a bag of sand.",
                          val=300,
                          wt=15)
 
@@ -549,14 +550,14 @@ class Sulfur(Item):
 class Saltpeter(Item):
     def __init__(self):
         super().__init__(name="Saltpeter",
-                         desc="A small vial of powder."
+                         desc="A small vial of powder.",
                          val=0,
                          wt=0)
                          
 class SmallGear(Item):
     def __init__(self):
         super().__init__(name="Wooden Gear",
-                         desc="A small wooden gear."
+                         desc="A small wooden gear.",
                          val=0,
                          wt=3)
                          
@@ -670,7 +671,7 @@ class IronCastPot(Item):
 class Cup(Item):
     def __init__(self):
         super().__init__(name="Cup",
-                         desc="An clay cup."
+                         desc="An clay cup.",
                          val=5,
                          wt=2)
                          
