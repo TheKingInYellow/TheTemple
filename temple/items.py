@@ -1,12 +1,9 @@
-#! /usr/bin/python2.7
-
-__filename__ = 'items.py'
-__author__ = 'Kody Crowell'
-
 """
+ITEM CLASS
+
 Describes all of the items in the game.
 """
-from actionClass import *
+from actions import *
 
 
 class Item:
@@ -37,31 +34,15 @@ class Tool(Item):
     
     Possibility of adding expendability / broken attribute?
     """
-    def __init__(self, name, desc, val, wt, action, equip=False):
+    def __init__(self, name, desc, val, wt, action):
         self.action = action
-        self.equipped = equip
         super().__init__(name, desc, val, wt)
 
     def __str__(self):
-        t_str =  "{}*Equipped*\n---------------\nValue: {}\nWeight: {}" \
+        return "{}\n---------------\nValue: {}\nWeight: {}" \
                  + "\nAction: {}\n{}\n".format(self.name, self.value, \
                             self.weight, self.action, self.description)
-                            
-    def equip(self):
-        self.equipped = True
 
-    def unequip(self):
-        self.equipped = False
-
-
-class Knife(Tool):
-    def __init__(self):
-        super().__init__(name="Knife",
-                         desc="A small hunting knife. Near the hilt, the " \
-                              "initials K.M.J. are engraved into the blade.",
-                         val=50,
-                         wt=3,
-                         action="Cut")
 
 class PickAxe(Tool):
     def __init__(self):
@@ -106,35 +87,53 @@ class FishingRod(Tool):
 
 
 # WEAPON ##################################################################
-class Weapon(Tool):
-    """
-    The base class Weapon inherits from Tool. You can attack with weapons.
-    You can only carry one weapon at a time.
+# class Weapon(Tool):
+#     """
+#     The base class Weapon inherits from Tool. You can attack with weapons.
+#     You can only carry one weapon at a time.
 
-    name :: name of the weapon
-    desc :: description of the weapon
-    val :: value of the weapon
-    wt :: weight of the weapon
-    dmg :: damage value of the weapon
-    """
-    def __init__(self, name, desc, val, wt, dmg):
-        self.damage = dmg
-        super().__init__(name, desc, val, wt, action="Attack")
+#     name :: name of the weapon
+#     desc :: description of the weapon
+#     val :: value of the weapon
+#     wt :: weight of the weapon
+#     dmg :: damage value of the weapon
+#     """
+#     def __init__(self, name, desc, val, wt, dmg):
+#         self.damage = dmg
+#         super().__init__(name, desc, val, wt, action="Attack")
 
-    def __str__(self):
-        return "{}\n---------------\nValue: {}\nWeight: {}\nDamage: " \
-             + "{}\n{}\n".format(self.name, self.value, self.weight, \
-                                 self.damage, self.description)
+#     def __str__(self):
+#         return "{}\n---------------\nValue: {}\nWeight: {}\nDamage: " \
+#              + "{}\n{}\n".format(self.name, self.value, self.weight, \
+#                                  self.damage, self.description)
 
 
-class Dagger(Weapon):
-    def __init__():
-        super().__init__(name="Dagger",
-                         desc="A sharp dagger with a wooden hilt.",
-                         val=10,
-                         wt=3,
-                         dmg=5)
+# class Spear(Weapon):
+#     def __init__():
+#         super().__init__(name="Spear",
+#                          desc="A sharp-looking with a pointy end.",
+#                          val=20,
+#                          wt=7,
+#                          dmg=15)
+
+# class ShortSword(Weapon):
+#     def __init__():
+#         super().__init__(name="Short Sword",
+#                          desc="A trusty sword for any would-be adventurer.",
+#                          val=15,
+#                          wt=4,
+#                          dmg=10)
                          
+# class Knife(Weapon):
+#     def __init__(self):
+#         super().__init__(name="Knife",
+#                          desc="A large hunting knife. Near the hilt, the " \
+#                               "initials K.M.J. are engraved into the blade.",
+#                          val=50,
+#                          wt=2,
+#                          dmg=5)
+
+
 # CLOTHING CLASS ##########################################################
 class Clothing(Item):
     """
@@ -169,6 +168,7 @@ class Clothing(Item):
 
     def unequip(self):
         self.equipped = False
+
 
 class GoldRing(Clothing):
     def __init__(self):
@@ -219,6 +219,7 @@ class FancyTrousers(Clothing):
                          val=60,
                          chr=40,
                          wt=5)
+
 
 # FOOD CLASS ##############################################################
 class Food(Item):
@@ -364,7 +365,7 @@ class NadaBerry(Food):
         return "The berry is much too bitter for your liking."
 
 
-# TREASURE ##############################################################
+# TREASURE ###############################################################
 class CopperHelm(Item):
     def __init__(self):
         super().__init__(name="Copper Helm",
@@ -479,7 +480,7 @@ class SilverWare(Item):
                          val=50,
                          wt=10)
 
-# QUEST ITEMS ############################################################
+# QUEST ITEMS #############################################################
 class RareLily(Item):
     def __init__(self):
         super().__init__(name="Rare Tiger Lily",

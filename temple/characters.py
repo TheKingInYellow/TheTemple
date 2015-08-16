@@ -1,9 +1,6 @@
-#! /usr/bin/python2.7
-
-__filename__ = 'characterClass.py'
-__author__ = 'Kody Crowell'
-
 """
+CHARACTER CLASS
+
 Defines the NPC characters in the game.
 """
 

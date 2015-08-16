@@ -1,16 +1,28 @@
-#! /usr/bin/python2.7
-
-__filename__ = 'actionClass.py'
-__author__ = 'Kody Crowell'
-
 """
+ACTION CLASS
+
 Describes all of the actions a player can make in the game.
 """
 
-from playerClass import Player
+from player import Player
 
 class Action:
     """
     The base class for all actions.
     """
-    pass
+    def __init__(self, name, method, **kwargs):
+        """
+        Defines a new action.
+
+        name :: name of the action
+        method :: function that is executed upon call
+        """
+        self.name = name
+        self.method = method
+
+    def __str__(self):
+        return "{}".format(self.name)
+
+
+class mo
+        

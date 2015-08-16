@@ -1,12 +1,9 @@
-#! /usr/bin/python2.7
+"""
+PLAYER CLASS
 
-__filename__ = 'playerClass.py'
-__author__ = 'Kody Crowell'
-
+Class holding all information about the player.
+"""
 
 class Player:
-    """
-    The class holding all Player information.
-    """
     pass
 

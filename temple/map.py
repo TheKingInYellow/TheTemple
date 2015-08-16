@@ -1,9 +1,6 @@
-#! /usr/bin/python2.7
-
-__filename__ = 'mapClass.py'
-__author__ = 'Kody Crowell'
-
 """
+MAP CLASS
+
 Loads all tiles in the world space.
 """
 
