@@ -1,1 +1,1 @@
-The Temple is a text-based RPG that involves puzzles and NPC interaction.
+The Temple is a text-based RPG that involves puzzles and combat.
