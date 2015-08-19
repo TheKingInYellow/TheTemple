@@ -8,12 +8,17 @@ from random import randint
 import items, tiles
 
 
-class Player:
-    inventory = [items.VoidKnuckles()]
-    hp = 100
-    maxhp = 100
-    loc_x, loc_y = (2, 11)
-    victory = False
+class Player(object):
+    """
+    Player class handles all interactions with the player.
+    """
+    def __init__(self):
+        self.inventory = [items.VoidKnuckles()]
+        self.hp = 100
+        self.maxhp = 100
+        # counting starts at 0!
+        self.loc_x, self.loc_y = (1, 10)
+        self.victory = False
 
     def is_alive(self):
         return self.hp > 0
@@ -24,7 +29,7 @@ class Player:
             action_method(**kwargs)
 
     def print_inventory(self):
-        print 'Player Inventory\n---------------'
+        print "\n\t=================\n\tINVENTORY\n\t================="
         for item in self.inventory:
             print item
         print '\n'
@@ -55,9 +60,7 @@ class Player:
                 if i.damage > max_dmg:
                     max_dmg = i.damage
                     best_weapon = i
-            if not best_weapon:
-                best_weapon = 
-            
+
         print "You attack with the {}.".format(best_weapon.name)
         enemy.hp -= best_weapon.damage
         if not enemy.is_alive():
