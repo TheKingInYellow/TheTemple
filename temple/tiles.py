@@ -41,9 +41,9 @@ class MapTile:
         """
         moves = []
         if world.tile_exists(self.x + 1, self.y):
-            moves.append(actions.MoveFore())
-        if world.tile_exists(self.x - 1, self.y):
             moves.append(actions.MoveAstern())
+        if world.tile_exists(self.x - 1, self.y):
+            moves.append(actions.MoveFore())
         if world.tile_exists(self.x, self.y + 1):
             moves.append(actions.MoveAstarboard())
         if world.tile_exists(self.x, self.y - 1):
@@ -59,19 +59,25 @@ class MapTile:
 
         return moves
 
+    def look_around(self):
+        """
+        Opportunity to provide a more in-depth description of the room.
+        """
+        raise NotImplementedError()
+
 
 class HoldingCell(MapTile):
     def intro_text(self):
         return """
-        You awake in a cell...
+        You awake in a cold, glass cell. You're slightly hungover and your
+        fatigues smell funny. Nearby, the cell door is ajar.
         """
 
-    def modify_player(self, the_player):
+    def alter_player(self, the_player):
         # room has no action on player
         pass
 
 
-        
 class Corridor(MapTile):
     def intro_text(self):
         return """
@@ -79,78 +85,82 @@ class Corridor(MapTile):
         along the floor.
         """
 
-    def modify_player(self, the_player):
+    def alter_player(self, the_player):
         pass
 
 class Brig(MapTile):
-    def intro_text(self)
-
-class ControlCentre(MapTile):
-
+    pass
+class CommandCentre(MapTile):
+    pass
+class CollapsedCorridor(MapTile):
+    pass
 class Communications(MapTile):
-
-class AstroMetrics(MapTile):
-
+    pass
+class Astrometrics(MapTile):
+    pass
 class StasisRoom(MapTile):
-
-class OfficersMess(MapTile):
-
+    pass
+class CaptainsQuarters(MapTile):
+    pass
+class OfficersMessHall(MapTile):
+    pass
 class Galley(MapTile):
-
+    pass
 class MessHall(MapTile):
-
+    pass
 class Showers(MapTile):
-
+    pass
 class CargoHold(MapTile):
-
+    pass
 class Library(MapTile):
-
+    pass
 class ObservationDeck(MapTile):
-
+    pass
 class Barracks(MapTile):
-
+    pass
 class LivingQuarters(MapTile):
-
+    pass
 class Armoury(MapTile):
-
+    pass
 class WarRoom(MapTile):
-
+    pass
 class RecreationRoom(MapTile):
-
+    pass
 class Infirmary(MapTile):
-
+    pass
 class MedicalBay(MapTile):
-
+    pass
 class ShieldControl(MapTile):
-
+    pass
 class Morgue(MapTile):
-
+    pass
 class WasteManagement(MapTile):
-
+    pass
 class WeaponSystems(MapTile):
-
+    pass
 class PodHangar(MapTile):
-
+    pass
 class FusionStudies(MapTile):
-
+    pass
 class Laboratory(MapTile):
-
-class BioTechStudies(MapTile):
-
+    pass
+class BiotechStudies(MapTile):
+    pass
 class TurretDeck(MapTile):
-
+    pass
 class Airlock(MapTile):
-
+    pass
 class Hydroponics(MapTile):
-
+    pass
 class GravityControl(MapTile):
-
+    pass
 class EngineeringDeck(MapTile):
-
-class EnviroSysems(MapTile):
-
+    pass
+class EnvironmentalSystems(MapTile):
+    pass
 class WaterTreatment(MapTile):
-
+    pass
 class PowerSystems(MapTile):
-
+    pass
 class EngineRoom(MapTile):
+    pass
