@@ -22,14 +22,13 @@ def load_tiles():
     """
     Parses a csv file that describes the world space into the _world object.
     """
-    rdr = csv.reader(open('../resources/blueprint.csv', 'r'), delimiter=',')
-    world = list(reader)
+    rdr = csv.reader(open('../resources/world.csv', 'r'), delimiter=',')
+    world = list(rdr)
 
-    for i, row in enumerate(world):
-        for j, room in enumerate(row):
+    for j, row in enumerate(world):
+        for i, room in enumerate(row):
             if room == "":
                 room = None
             else:
-                room = getattr(tiles, room)(x,y)
+                room = getattr(tiles, room)(i,j)
             _world[(i,j)] = room
-            
