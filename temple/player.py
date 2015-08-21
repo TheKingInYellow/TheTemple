@@ -40,13 +40,13 @@ class Player(object):
         self.loc_y += dy
 
     def move_astern(self):
-        self.move(dx=-1, dy=0)
+        self.move(dx=1, dy=0)
 
     def move_aport(self):
         self.move(dx=0, dy=-1)
 
     def move_fore(self):
-        self.move(dx=1, dy=0)
+        self.move(dx=-1, dy=0)
 
     def move_astar(self):
         self.move(dx=0, dy=1)
@@ -83,6 +83,9 @@ class Player(object):
     def eat(self, food):
         if isinstance(food, items.Food):
             food.eat()
+            self.hp += 5
+            if self.hp > self.maxhp:
+                self.hp = self.maxhp
             self.inventory.remove(food)
 
 
@@ -100,7 +103,23 @@ class Player(object):
 
 
     def unlock(self, tile):
-        tile.unlock()
+        pass
+
+    def look(self, obj, tile):
+        pass
+
+    def use(self, item):
+        pass
+
+    def interact(self, obj, tile):
+        pass
+
+    def equip(self, item):
+        pass
+
+    def helpme(self):
+        pass
 
 
-    
+class Death(object):
+    pass
