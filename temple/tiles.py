@@ -65,6 +65,32 @@ class MapTile:
         """
         raise NotImplementedError()
 
+    def help(self):
+        """
+        Returns a basic help dialogue.
+        """
+        return """
+        Use commands like 'move _____' to move a particular direction. Note
+        that directions are given relative to the ship's bearing; that is,
+        to move one room towards the stern, the command 'go astern' would 
+        work. Likewise for bow, port, and starboard, the directional words
+        are 'fore / foreward', 'aport' and 'astarboard'. Type 'look around'
+        in a room to get a better look at at your environment. 'Look at _____'
+        will give a description of a particular object. Special rooms or items
+        trigger special action keywords. For example, if you have a piece of
+        food in your inventory, typing 'eat _____' would consume the piece of
+        food and add a small bit of health. To pick up a piece of food, simply
+        type 'take _____' or 'pick up _____'. Type 'view inventory' to view 
+        what items you are currently carrying. Other common keywords include:
+         - interaction with environment - 'push', 'pull', 'press', 'turn'
+         - combat - 'attack', 'fight'
+         - interaction with doors - 'unlock', 'open'
+         - interaction with self - 'heal', 'equip', 'wear', 'eat'
+         - interaction with other items - 'eat', 'read', 'cut'
+         - interaction with inventory - 'view', 'pick up', 'take', 'drop'
+         - directional movement - 'go', 'walk', 'travel', 'move'
+        """
+
 
 class HoldingCell(MapTile):
     def intro_text(self):
@@ -77,6 +103,13 @@ class HoldingCell(MapTile):
         # room has no action on player
         pass
 
+    def look_around(self):
+        return """
+        A small cot with a single pillow sits in the corner of the cell.
+        Nearby, a small sink and vacuum toilet are attached to the walls. 
+        The entrance of the cell is unlocked and open, but looking
+        through the glass, you don't see any guard posted.
+        """
 
 class Corridor(MapTile):
     def intro_text(self):
@@ -89,7 +122,15 @@ class Corridor(MapTile):
         pass
 
 class Brig(MapTile):
-    pass
+    def intro_text(self):
+        return """
+        You are in the Brig. A small desk is nearby. Atop it, a console.
+        """
+
+    def alter_player(self, the_player):
+        pass
+
+        
 class CommandCentre(MapTile):
     pass
 class CollapsedCorridor(MapTile):
