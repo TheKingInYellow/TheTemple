@@ -39,24 +39,24 @@ class Weapon(Item):
 
     def __str__(self):
         return """
-        {} :: {}
-        \tDamage: {}
+        {} ::::: {}
+        \t\t\t\t\t\tDamage: {}
         """.format(self.name, self.description, self.damage)
-        
+
 
 
 class VoidKnuckles(Weapon):
     def __init__(self):
         super(VoidKnuckles, self).__init__(name="Void Knuckles",
-                            desc="""These knuckledusters remove enemies from
+                            desc="""These knuckledusters punch enemies out of
                             this dimension and throw them into the Void.
-                            """, 
+                            """,
                             dmg=5)
 
 
 class LaserKnife(Weapon):
     def __init__(self):
-        super(LaserKnife, self).__init__(name="YAD Laser Knife",
+        super(LaserKnife, self).__init__(name="Laser Knife",
                          desc="""This knife is made from a yttrium-aluminium-
                          diamond alloy. It gives a soft green glow.""",
                          dmg=10)
@@ -69,8 +69,8 @@ class DiscretePistol(Weapon):
                          "energy in the form of a pulse, discretizing
                          "attackers into their component particles.""",
                          dmg=15)
-                                
-                         
+
+
 class BifurcationRifle(Weapon):
     def __init__(self):
         super(BifurcationRifle, self).__init__(name="Bifurcation Rifle",
@@ -91,13 +91,13 @@ class HeteroskedSpear(Weapon):
 # MISC ######################################################################
 class HotGloves(Item):
     def __init__(self):
-        super(HotGloves, self).__init__(name="Heat Resistant Gloves",
+        super(HotGloves, self).__init__(name="Hot Gloves",
                          desc="""Great for handling objects with temperatures
-                         reaching up to 1700 K.""")
+                         reaching up to 1700 K. Very heat resistant.""")
 
 class MedPack(Item):
     def __init__(self):
-        super(MedPack, self).__init__(name="Temp-Steal Med-Pack",
+        super(MedPack, self).__init__(name="Med-Pack",
                          desc="""These med-packs use complicated technology
                          to steal perfectly healthy tissue from the
                          future in order to heal wounds in the present.""")
@@ -114,15 +114,15 @@ class SwipeCard(Item):
 
 class OxyMask(Item):
     def __init__(self):
-        super(OxyMask, self).__init__(name="Oxy-Filtration Mask",
+        super(OxyMask, self).__init__(name="Oxygen Mask",
                          desc="""This mask filters any element into Earth-01-
                          like air: 78.09% N, 20.95% O, 0.93% Ar,
                          0.039% CO2, trace amounts of other elements.
                          Also added is the faint smell of marijuana.""")
 
-class LaserWireCutters(Item):
+class WireCutters(Item):
     def __init__(self):
-        super(LaserWireCutters, self).__init__(name="Laser Wire Cutters",
+        super(WireCutters, self).__init__(name="Wire Cutters",
                          desc="A nice pair of wire cutters, a must-have for "\
                             + "every practical person.")
 
@@ -146,8 +146,8 @@ class Vitriol(Item):
 
 class Spspork(Item):
     def __init__(self):
-        super(Spspork, self).__init__(name="Space Spork (Spspork)",
-                         desc="""Self explanatory. Made from an impenetrable
+        super(Spspork, self).__init__(name="Spspork",
+                         desc="""Space spork. Made from an impenetrable
                          superconducting vibranium-adamantium alloy.""")
 
 
@@ -167,7 +167,7 @@ class CoordinateChip(Item):
 
 class FuelCell(Item):
     def __init__(self):
-        super(FuelCell, self).__init__(name="Fuse-X Fuel Cell",
+        super(FuelCell, self).__init__(name="Fuel Cell",
                          desc="""This third generation fuel cell is a true
                          sun-in-a-can. Once iron is fused in the
                          core, the cell politely removes itself from
@@ -184,16 +184,16 @@ class FoodPack(Food):
     def __init__(self):
         super(FoodPack, self).__init__(name="Food Ration",
                          desc="""High quality space-food packed with a month's
-                         worth of protein, carbohydrates and other essential 
+                         worth of protein, carbohydrates and other essential
                          nutrients.""")
 
     def eat(self):
         return "Your food ration tasted...strange. \nIt probably needs salt."
 
-        
+
 class CoffeePack(Food):
     def __init__(self):
-        super(CoffeePack, self).__init__(name="Antimicrobial Coffee Packet",
+        super(CoffeePack, self).__init__(name="Coffee Packet",
                          desc="""This genetically-modified coffee supposedly
                          has the ability to keep astronauts awake for
                          more than 72 hours while fighting infections.""")
@@ -201,7 +201,7 @@ class CoffeePack(Food):
     def eat(self):
         return "You begin to feel the effects of the caffeine immediately."
 
-        
+
 class WineSupplement(Food):
     def __init__(self):
         super(WineSupplement, self).__init__(name="Wine Supplement",
@@ -209,10 +209,10 @@ class WineSupplement(Food):
                             + "Just add water!")
 
     def eat(self):
-        return """The alcohol by volume on the package 
+        return """The alcohol by volume on the package
                says 16%, but you're not convinced."""
 
-            
+
 class SandwichCube(Food):
     def __init__(self):
         super(SandwichCube, self).__init__(name="Sandwich Cube",
@@ -222,7 +222,7 @@ class SandwichCube(Food):
     def eat(self):
         return "An aftertaste of ham and \ncheese lingers in your mouth."
 
-        
+
 class SpaceOkra(Food):
     def __init__(self):
         super(SpaceOkra, self).__init__(name="Space Okra",
