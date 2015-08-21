@@ -22,6 +22,7 @@ def load_tiles():
     """
     Parses a csv file that describes the world space into the _world object.
     """
+    # way to read this from a different directory?
     rdr = csv.reader(open('../resources/world.csv', 'r'), delimiter=',')
     world = list(rdr)
 
